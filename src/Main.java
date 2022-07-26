@@ -59,7 +59,7 @@ class Main {
         StringBuilder secondSb = new StringBuilder();
         StringBuilder romanAnswer = new StringBuilder();
         String[] splittedRoman = inputExp.split("");
-        String method = null;
+        String method = "";
         int firstArg;
         int secondArg;
         boolean trigger = false;
@@ -70,6 +70,9 @@ class Main {
             if(Objects.equals(splittedRoman[i], "+") || Objects.equals(splittedRoman[i], "-") ||
                     Objects.equals(splittedRoman[i], "*") || Objects.equals(splittedRoman[i], "/"))
             {
+                if(!method.isEmpty()){
+                    throw new Exception("In expression must be one operand and two numbers only");
+                }
                 method = splittedRoman[i];
                 trigger = true;
                 continue;
